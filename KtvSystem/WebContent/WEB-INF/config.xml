@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 打开延迟加载的开关 -->  
+        <setting name="lazyLoadingEnabled" value="true" />  
+        <!-- 将积极加载改为消息加载即按需加载 -->  
+        <setting name="aggressiveLazyLoading" value="false"/>  
+	</settings>
+	<!-- 配置映射文件 -->
+	<mappers>
+		<mapper resource="com/jis/mapper/vipMapper.xml"/>
+		<mapper resource="com/jis/mapper/employeeMapper.xml"/>
+		<mapper resource="com/jis/mapper/songMapper.xml"/>
+		<mapper resource="com/jis/mapper/styleTypeMapper.xml"/>
+		<mapper resource="com/jis/mapper/songToTypeMapper.xml"/>
+		<mapper resource="com/jis/mapper/roomTypeMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/roomRecordMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/customerMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/roomMapper.xml"/>
+		<mapper resource="com/jis/mapper/timeFeeMapper.xml"/> 
+		<mapper resource="com/jis/mapper/addPriceMapper.xml"/>
+		<mapper resource="com/jis/mapper/goodsMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/roomGoodsMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/goodsTypeMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/workTimeMapper.xml"></mapper>
+		<mapper resource="com/jis/mapper/systemInfoMapper.xml"></mapper>
+	</mappers>
+</configuration>

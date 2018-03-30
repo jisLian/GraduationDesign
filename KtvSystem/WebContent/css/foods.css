@@ -1,0 +1,233 @@
+@charset "utf-8";
+/* CSS Document */
+/*整个页面的容器样式*/
+.bodyContent{
+	box-shadow: 5px 5px 15px black;
+}
+.clear:after{
+	display:block;
+	content: "";
+	clear: both;
+}
+/*顶部样式*/
+.head{
+	height: 80px;
+	background-color:#4E8CAE;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	
+}
+.headTitle{
+	width:250px;
+	height:80px;
+	color: whitesmoke;
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 80px;
+	margin-left: 20px;	
+
+}
+/*底部样式*/
+.foot{
+	height:40px;
+	color:#808080;
+	font-size: 15px;
+	text-align: center;
+	line-height: 50px;
+}
+a{
+	text-decoration: none;
+	color: #0000EE;
+}
+/*主体样式*/
+.body{
+	
+}
+.typeDiv{
+	width:350px;
+	height:40px;
+	line-height: 40px;
+	margin-left:10px;
+	float:left;
+}
+.county{
+	float:left;
+	width:400px;
+	height:40px;
+	margin-left:950px;
+	margin-top:-40px;
+	line-height: 40px;
+}
+.county img{
+	margin-right:10px;
+}
+.county div{
+	float:left;
+}
+#roomId{
+	
+	margin-top:10px;
+}
+.county input{
+	margin-left:80px;
+	margin-top:5px;
+	height:30px;
+	width:80px;
+	border-radius:5px;
+	outline-style: none;
+	background-color: darkblue;
+	color:white;
+	cursor: pointer;
+	
+}
+.food{
+	width:1250px;	
+	margin:auto;
+}
+p{
+	text-indent: 10px;
+	color:#FF4400;
+	font-weight: bold;
+	
+}
+.imgs{
+	float: left;
+	height:350px;
+	margin-left:20px;
+	margin-bottom:20px;
+	border:1px solid gray;
+	
+}
+.imgs:hover{
+	border:1px solid red;
+}
+.count{
+	width:60px;
+	heith:30px;
+	font-size: 12px;
+	margin-top:-35px;
+	margin-left:150px;
+}
+.foodName{
+	width:200px;
+	height:40px;
+	margin:auto;
+	margin-top:10px;
+	font-size:15px;
+}
+.buyCount{
+	width:15px;
+	height:15px;
+	font-size:10px;
+	background-color: brown;
+	border-radius:50%;
+	position:relative;
+	left:-285px;
+	top:-2px;
+	color:white;
+	text-align:center;
+	display:none;
+	line-height: 15px;
+}
+.opt{
+	width:100px;
+	height:15px;
+	position:relative;
+	left:140px;
+	top:10px;
+	
+}
+.opt span{
+	width:18px;
+	height:14px;
+	float:left;
+	border:1px solid gray;
+	display:block;
+	text-align:center;
+	line-height:14px;
+	background-color:brown;
+	color: white;
+	cursor: pointer;
+}
+.opt .content{
+	width:30px;
+	height:14px;
+	background-color:white;
+	color:black;
+}
+.pageContent{
+	width:600px;
+	height:30px;
+	margin:auto;
+	color:#333333;
+}
+.pageContent div{
+	float:left;
+	margin-left:10px;	
+	text-align: center;
+	
+}
+.downpage{
+	width:80px;
+	height:25px;
+	border:1px solid darkgray;
+	cursor:pointer;
+}
+.uppage{
+	width:80px;
+	height:25px;
+	border:1px solid darkgray;
+	cursor:pointer;
+}
+#jumpPage{
+	width:40px;
+}
+.pagecode{
+	width:25px;
+	height:25px;
+	border:1px solid darkgray;
+	cursor:pointer;
+}
+#btn{
+	height:26px;
+	cursor:pointer;
+}
+/*结算*/
+.sumMoney{
+	width:350px;
+	height:450px;
+	border:1px solid garkgray;
+	position:absolute;
+	left:550px;
+	top:150px;	
+	text-align: center;
+	border-radius:5px;
+	background-color: #019FE8;
+	z-index:5;
+	display:none;
+	
+}
+.sumTital{
+	margin-top:10px;
+	color:white;
+	font-size:25px;
+}
+.sumMoney img{
+	margin-top:10px;
+}
+.countBtn{
+	width:80px;
+	height:30px;
+	margin-top:25px;
+	margin-left:25px;
+	font-size:15px;
+}
+.overDiv{
+	width:1350px;
+	height:940px;	
+	position:absolute;
+	z-index:3;		
+	background-color: rgba(0,0,0,0.6);
+	display:none;
+}

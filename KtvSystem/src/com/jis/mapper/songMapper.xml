@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE mapper PUBLIC "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd" "mybatis-3-mapper.dtd" > -->
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.SongDao">
+  <resultMap type="com.jis.pojo.Song" id="songType">
+  	<id property="songId" column="songid"/>
+  	<result property="songName" column="songName"/>
+  	<result property="songLanguage" column="songLanguage"/>
+  	<result property="songSinger" column="songSinger"/>
+  	<result property="songTime" column="songTime"/>
+  	<result property="songCount" column="songCount"/>
+  	<result property="songPublishTime" column="songPublishTime"/>
+  	<result property="songPath" column="songPath"/>  	
+  </resultMap>
+  <!-- 查找所有的歌曲 -->
+  <select id="findSongByPageCode" resultMap="songType">
+  	select * from (select rownum as row_id,song.* from song order by songId desc) where row_id between (10*#{0}-10)+1 and 10*#{0}
+  </select>
+  <!-- 查找所有的语种 -->
+  <resultMap type="com.jis.bean.Language" id="LanguageType">
+  	<result property="language" column="songLanguage"/>
+  </resultMap>
+  <select id="findAllLanguage" resultMap="LanguageType">
+  	select songLanguage from song group by songLanguage
+  </select>
+  <!-- 根据语种查找歌曲 -->
+  <select id="findSongByLanguage" resultMap="songType">
+  		select * from (select rownum as row_id,song.* from song where songlanguage =#{0}) where row_id between (10*#{1}-10)+1 and 10*#{1}
+  </select>
+  <!-- 查找结果总条目数 -->
+  <select id="findCount" resultType="java.lang.Integer">
+  	select count(*) from song
+  </select>
+  <select id="findCountByLanguage" resultType="java.lang.Integer">
+  	 select count(*) from song where songlanguage =#{0}
+  </select>
+  <select id="findSongBySearch" resultMap="songType">
+  	select * from song where songName  like #{0} or songsinger like #{0}
+  </select>
+  <select id="findSongBySongName" resultMap="songType">
+  	select * from song where songName=#{0}
+  </select>
+  <delete id="deleteSongBySongId">
+  	delete from song where songId=#{0}
+  </delete>
+  <select id="findSongBySongId" resultMap="songType">
+  	select * from song where songId=#{0}
+  </select>
+  <update id="updateSongBySongId" parameterType="com.jis.form.UpdateSongForm">
+  	update song set songName=#{songName},songlanguage=#{songLanguage},songsinger=#{songSinger},songtime=#{songTime} where Songid=#{songId}
+  </update>
+  <insert id="addSong" parameterType="com.jis.form.AddSongInfoForm">
+  	insert into song values(songid_seq.nextval,#{songName},#{language},#{songSinger},#{songTime},default,#{pblishDate},#{songPath})
+  </insert>
+  <select id="findSongBySongPath" resultMap="songType">
+  	select * from song where songpath=#{0}
+  </select>
+</mapper>

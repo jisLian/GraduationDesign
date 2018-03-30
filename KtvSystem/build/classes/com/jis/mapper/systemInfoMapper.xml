@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jis.dao.SystemInfoDao">
+  	<resultMap type="com.jis.pojo.SystemInfo" id="systemInfoType">
+  		<result property="title" column="title"/>
+  		<result property="contentInfo" column="contentInfo"/>
+  		<result property="dateInfo" column="dateInfo"/>
+  		<result property="roleFlag" column="roleFlag"/>
+  		<result property="roleTel" column="roleTel"/>
+  	</resultMap>
+  	<insert id="addSystemInfo" parameterType="com.jis.pojo.SystemInfo">
+  		insert into systemInfo values(#{title},#{contentInfo},#{dateInfo},#{roleFlag},#{roleTel})
+  	</insert>
+  	<select id="findfrontEmpInfo" resultMap="systemInfoType">
+  		select *from systemInfo where roleFlag=#{0} order by dateInfo desc
+  	</select>
+  	<select id="findfrontEmpInfoByempTel" resultMap="systemInfoType">
+  		select *from systemInfo where roleTel=#{0} order by dateInfo desc
+  	</select>
+  	<select id="findinfo" resultMap="systemInfoType">
+  		select * from systemInfo where roleTel=#{0} or roleFlag=#{1} order by dateInfo desc
+  	</select>
+</mapper>

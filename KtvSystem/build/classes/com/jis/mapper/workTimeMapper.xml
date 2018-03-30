@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jis.dao.WorkTimeDao">
+  <resultMap type="com.jis.pojo.WorkTime" id="workTimeType">
+  	<result property="StartTime" column="StartTime"/>
+  	<result property="Endtime" column="Endtime"/>
+  </resultMap>
+  <select id="findAllWorkTime" resultMap="workTimeType">
+  	select * from workTime
+  </select>
+</mapper>

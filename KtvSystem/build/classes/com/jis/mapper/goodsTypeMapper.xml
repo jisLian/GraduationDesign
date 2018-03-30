@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.GoodsTypeDao">
+  <resultMap type="com.jis.pojo.GoodsType" id="goodsType2">
+  	<id property="goodstypeId" column="goodstypeId"></id>
+  	<result property="goodstypename" column="goodstypename"/>
+  </resultMap>
+  <select id="findGoodsTypes" resultMap="goodsType2">
+  	select * from GoodsType
+  </select>
+  <select id="findGoodsTypeByGoodsTypeId" resultMap="goodsType2">
+  	select * from goodsType where Goodstype.Goodstypeid=#{0}
+  </select>
+  <insert id="addGoodsType">
+  	insert into goodsType values(goodsTypeId_seq.nextval,#{0})
+  </insert>
+  <delete id="deleteGoodsType">
+  	delete from goodsType where goodstypeId=#{0}
+  </delete>
+</mapper>

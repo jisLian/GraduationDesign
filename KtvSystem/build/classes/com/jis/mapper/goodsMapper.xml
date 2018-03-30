@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.GoodsDao">
+ 	<resultMap type="com.jis.pojo.Goods" id="goodsType">
+  		<id property="goodsId" column="goodsId"/>
+  		<result property="goodsName" column="goodsName"/>
+  		<result property="goodsPrice" column="goodsPrice"/>
+  		<result property="goodspicture" column="goodspicture"/>
+  		<result property="goodscount" column="goodscount"/>
+  		<association property="goodstype" javaType="com.jis.pojo.GoodsType" 
+  		select="com.jis.dao.GoodsTypeDao.findGoodsTypeByGoodsTypeId" column="goodstypeId">
+  		</association>
+  	</resultMap>
+  	<select id="findGoodsBygoodsId" resultMap="goodsType">
+  		select * from goods where goodsId in(select goodsId from roomgoods where RoomId=#{0})
+  	</select>
+  	<select id="findAllGoods" resultMap="goodsType">
+  		select*from(select rownum as row_id,Goods.* from Goods order by goodsId desc) where row_id between 10*(#{0}-1)+1and 10*#{0} order by goodsId desc
+  	</select>
+  	<select id="findGoodsByTypeId" resultMap="goodsType">
+  		select*from(select rownum as row_id,Goods.* from Goods where GoodstypeId=#{0}) where row_id between 10*(#{1}-1)+1and 10*#{1}
+  	</select>
+  	<select id="findAllGoodsCount" resultType="java.lang.Integer">
+  		select count(*) from Goods 
+  	</select>
+  	<select id="findGoodsCountByTypeId" resultType="java.lang.Integer">
+  		select count(*) from Goods where GoodstypeId=#{0}
+  	</select> 	
+  	<select id="countGoodsFee" resultType="java.lang.Float">
+		select sum(goodsprice*ordercount) from goods inner join (select Goodsid,ordercount from roomgoods where roomId=#{0})e on goods.goodsId=e.goodsid  	
+	</select>
+  	<select id="searchGoods" resultMap="goodsType" >
+  		select * from goods where goodsName like #{0}
+  	</select>
+  	<insert id="addGoods" parameterType="com.jis.form.AddGoodsInfo">
+  		insert into goods values(goodsid_seq.nextval,#{goodsName},#{goodsPrice},#{goodsImgName},#{goodsCount},#{goodsType})
+  	</insert>
+  	<delete id="deleteGoods">
+  		delete from goods where goodsId=#{0}
+  	</delete>
+  	<delete id="deleteGoodsByTypeId">
+  		delete from goods where goodstypeId=#{0}
+  	</delete>
+  	<update id="updateGoodsInfo">
+  		update goods set 
+		<if test="flag==0">
+			goodsName=#{goodsName} 
+		</if>
+		<if test="flag==1">
+			goodsPrice=#{goodsPrice} 
+		</if>
+		<if test="flag==2">
+			goodsCount=#{goodsCount} 
+		</if>	
+		where goodsid=#{goodsId}
+  	</update>
+  	<update id="updateGoodsCount">
+  		update goods set goodscount=goodscount-#{1} where goodsid=#{0}
+  	</update>
+</mapper>

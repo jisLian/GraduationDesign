@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.RoomRecordDao">
+	<resultMap type="com.jis.pojo.RoomRecord" id="RoomRecordType">
+		<result property="roomId" column="roomId"/>
+		<result property="startTime" column="startTime"/>
+		<result property="endTime" column="endTime"/>
+		<result property="actualEndTime" column="actualEndTime"/>
+		<result property="customerId" column="customerId"/>
+		<result property="cunsumFee" column="cunsumFee"/>
+	</resultMap>
+	<select id="getRoomRecordByTime" resultMap="RoomRecordType">
+		select * from roomrecord where startTime between #{0} and #{1}
+	</select>
+	<select id="findCustomerIdByRoomId" resultMap="RoomRecordType">
+		select * from roomrecord where roomid=#{0}
+	</select>
+	<select id="getRoomRecordByRoomAndTime" resultMap="RoomRecordType">
+		select * from roomrecord where roomid=#{2} and startTime between #{0} and #{1}
+	</select>
+	<insert id="AddRecord" parameterType="com.jis.pojo.RoomRecord">
+		insert into roomrecord values(#{roomId},#{startTime},#{endTime},null,#{customerId},#{cunsumFee})
+	</insert>
+	<update id="updateRoomRecord" parameterType="com.jis.pojo.RoomRecord">
+		update roomrecord set endtime=#{endTime},cunsumFee=#{cunsumFee} where roomId=#{roomId} and actualEndtime is null
+	</update>
+	<update id="exitRoomRecord" parameterType="com.jis.pojo.RoomRecord">
+		update roomrecord set actualEndtime=#{actualEndTime},cunsumFee=#{cunsumFee} where roomId=#{roomId} and actualEndtime is null
+	</update>
+	<update id="insertExitRecord">
+		update roomrecord set actualendtime=sysdate where actualendtime is null and roomid=#{0}
+	</update>
+	<select id="findUserRoomRecord" resultMap="RoomRecordType">
+		select * from roomrecord where roomId=#{0} and actualendtime is null
+	</select>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.StyleTypeDao">
+  	<resultMap type="com.jis.pojo.StyleType" id="styleType">
+  		<id property="styleTypeId" column="styleTypeId"/>
+  		<result property="styleTypeName" column="styleTypeName"/>
+  	</resultMap>
+  	<select id="findAllStyle" resultMap="styleType">
+  		select *  from styletype
+  	</select>
+  	<select id="findTyleBySongId" resultMap="styleType">
+  		select * from styletype where styletypeId in(select styletypeId from songToType where songid=#{0})
+  	</select>
+</mapper>

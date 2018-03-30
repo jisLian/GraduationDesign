@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.EmployeeDao">
+	<resultMap type="com.jis.pojo.Employee" id="empType">
+		<id property="empId" column="empId"/>
+		<result property="empName" column="empName"/>
+		<result property="empPwd" column="empPwd"/>
+		<result property="empSex" column="empSex"/>
+		<result property="empTel" column="EmpTel"/>
+		<result property="empFlag" column="empFlag"/>
+		<result property="empAddress" column="Empaddress"/>
+		<result property="birthday" column="birthday"/>
+		<result property="hire_date" column="hire_date"/>
+	</resultMap>
+	<select id="findEmpByempId" resultMap="empType">
+		select *from employee where empid=#{0}
+	</select>
+	<select id="findAllEmp" resultMap="empType"> 
+		select * from employee
+	</select>
+	<delete id="deleteEmpByempId">
+		delete from employee where empid=#{0}
+	</delete>
+	<select id="searchEmp" resultMap="empType">
+		select * from employee where empName  like #{0}
+	</select>
+	<select id="findEmpByEmpTel" resultMap="empType">
+		select * from employee where empTel=#{0}
+	</select>
+</mapper>

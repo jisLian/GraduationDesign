@@ -1,0 +1,244 @@
+<!-- 显示房间类型信息 -->
+@charset "utf-8";	
+	.clear:after{
+		clear: both;
+		content: "";
+		display: block;
+	}
+	
+	.roomTypeId{
+		cursor: pointer;
+	}
+	.typeTr{
+		height:60px;
+		font-size: 20px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.typeTr td{
+		width:250px;
+		cursor: pointer;
+		border:1px solid gray;
+		background-color:#F6F6F6;
+	}
+	.typeTr td:hover{
+		background-color: gainsboro;
+	}
+	
+	table{
+		border-collapse: collapse;
+	}
+	#price{
+		text-algin:center;
+		font-weight: bold;
+		color:#4D4D4D;
+	}
+	
+	.roomSel{
+		text-align: center;
+	}
+	.roomTab{
+		width:200px;
+		font-size:20px;
+	}
+	.roomTab td{
+		height:40px;
+		cursor:pointer;
+		text-align: center;
+	}
+	.roomTab td:hover{
+		background-color: darkblue;
+		color:white;
+	}
+	.roomTab tr:first-child td{
+		padding-left:-30px;
+		cursor: auto;
+		background-color: #F3F3F3;
+	}
+	.roomTab tr:first-child td:hover{
+		background-color: #F3F3F3;
+		color:black;
+	}
+	.hasUseRoom,.roomInfo,.ExitRoomInfo{
+		width:200px;
+		height:300px;
+		margin-top:20px;
+		margin-left:10px;		
+		overflow: auto;
+	}
+	
+	
+	.vipLogin{
+		display:none;
+	}
+	
+	.chooseRoom{
+		position:relative;
+		left:60px;
+		top:15px;
+		width:420px;
+		height:250px;
+		
+	}
+	
+	
+	.regTab{
+		width: 250px;
+		height: 160px;
+		margin: auto;
+		margin-top: 30px;
+		color: gray;
+		text-align: center;
+		border-collapse: collapse;
+	}
+	.regTab input{
+		width: 200px;
+		height: 30px;
+		border:1px solid gray;
+		border-radius: 2px;
+		border-style: solid;
+		
+	}
+
+	.UseRoomDiv,.ExitRoomDiv{
+		display:none;
+	}
+	
+	#box{
+		width:100px;
+		display:block;
+		padding-left:40px;
+	}
+	.chooseRoomTab{
+		font-size:15px;
+		font-family:"方正舒体";
+		width:420px;
+	}
+	
+	.chooseRoomTab tr{
+		height:40px;
+	}
+	
+	.customerDiv div{
+		margin-top:10px;
+	}
+	.vipPwdDiv{
+		display:none;
+	}
+	
+	.vipTip,.vipPwdTip,.vipTelTip,.timeTip,.selRoomTip,.vipDiscount,#selRoomTip,#timeTip,#exitRoomTip,.ExitVipDiscount,.exitMoneyTip{
+		width:240px;
+		color:red;
+		font-family:"方正舒体";
+	}
+	
+	.moveDiv{
+		display:inline-block;
+		height:40px;
+		line-height:40px;
+		color:#6C67A4;
+		font-size:20px;
+	}
+	.bodyContent{
+		width:970px;
+		height:530px;
+		background-image:url(../images/bg.png);
+	}
+	
+	
+	.emptyRoomDiv,.UseRoomDiv,.ExitRoomDiv{
+		margin:auto;
+		margin-left:150px;
+		text-align:center;
+		margin-top:30px;	
+	}
+	.regVipArea{
+		margin-left:350px;
+		margin-top:20px;
+		border:1px solid gray;	
+		border-radius: 5px; 
+		display:none;
+	}
+	
+	.container{
+		margin:auto;
+		width:1200px;
+	}
+	
+	.nav_left{
+		background-color: #424A5D;
+		width: 200px;
+		list-style: none;
+		height: 580px;
+		color:darkgrey;
+		font-size: 18px;
+		padding-top:100px;
+		float: left;
+	}
+	.handle{
+		text-decoration:none;
+		color:darkgrey;
+	}
+	#guide:hover,#guide a:hover{
+		text-decoration:none;
+		color:darkgrey;
+		background-color: darkcyan;
+	}
+	#price{
+		color:darkgrey;
+		padding-top:10px;
+		padding-bottom:30px;
+	}
+	.nav_left div{
+		height:40px;
+		text-align: center;
+		line-height: 40px;
+	}
+	.nav_left div:hover{
+		cursor: pointer;
+	}
+	
+	.right{
+		width: 940px;
+		height: 580px;
+		float:right;
+		text-align: center;
+	}
+	.total{
+		height:50px;
+		border-bottom: 5px solid #4F2D48;
+		color:white;
+		width:970px;
+		
+	}
+	
+	
+	
+	.total_left{
+		display:inline-block;
+		width:160px;
+		height: 45px;
+		text-align: center;
+		line-height: 50px;
+		font-size: 20px;
+		border-radius:5px 5px 0px 0px;
+		background-color: #4F2D48;
+	}
+
+	
+	.clear:after{
+		clear:both;
+		display: block;
+		content: "";
+	}
+	
+	.main_part{
+		width:1200px;
+	}
+	
+	.Left_part div{
+		float:left;
+	}
+	.ExitRoomInfo,.exitRoom{
+		display:none;
+	}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.AddPriceDao">	
+  	<resultMap type="com.jis.pojo.AddPrice" id="addPriceType">
+  		<result property="discountPrice" column="discountPrice"/>
+  		<association property="timeId" javaType="com.jis.pojo.TimeFee" 
+  		select="com.jis.dao.TimeFeeDao.getTimeFeeByTimeId" column="timeId">
+  		</association>	
+  		<association property="roomTypeId" javaType="com.jis.pojo.RoomType" 
+  		select="com.jis.dao.RoomTypeDao.findRoomTypeById" column="roomTypeId">
+  		</association>	
+  	</resultMap>
+  	<update id="updateDiscountFeeByTimeId">
+  		update addprice set discountPrice=#{0} where roomTypeId=#{1} and timeid=#{2}
+  	</update>
+  	<select id="findDisById" resultMap="addPriceType">
+  		select * from addprice where roomTypeId=#{0} and timeId=#{1}
+  	</select>
+  	<select id="getAllDiscount" resultMap="addPriceType">
+  		select * from addprice
+  	</select>
+</mapper>

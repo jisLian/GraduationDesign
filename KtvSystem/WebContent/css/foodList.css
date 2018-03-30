@@ -1,0 +1,79 @@
+.bodyContent{
+	box-shadow: 5px 5px 15px black;
+	width:1170px;
+	margin: auto;
+}
+.clear:after{
+	display:block;
+	content: "";
+	clear: both;
+}
+/*顶部样式*/
+.head{
+	height: 80px;
+	background-color:#4E8CAE;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	
+}
+.head a{
+	position:relative;
+	left:1000px;
+	top:-25px;
+	color:white;
+	font-size:17px;
+	
+}
+.headTitle{
+	width:250px;
+	height:80px;
+	color: whitesmoke;
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 80px;
+	margin-left: 20px;
+	font-family:"方正舒体";
+}
+/*底部样式*/
+.foot{
+	height:40px;
+	color:#808080;
+	font-size: 15px;
+	text-align: center;
+	line-height: 50px;
+}
+a{
+	text-decoration: none;
+	color: blue;
+}
+table td{
+		width: 200px;
+		border: 1px solid #645F5F;
+		text-align: center;
+		height: 30px;
+	}
+	
+	table{
+		border-collapse: collapse;
+		border
+	}
+	.food_container{
+		width: 800px;
+		margin: auto;
+		overflow: auto;
+		margin-top:10px;
+	}
+.btn_accept{
+		background-color: #BC4C4E;
+		color: white;
+		width: 50px;
+		line-height: 20px;
+		border-radius: 2px;
+		margin-left: 120px;
+		cursor: pointer;
+		
+	}
+	.roomId_title{
+		text-align: left;
+	}

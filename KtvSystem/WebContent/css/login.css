@@ -1,0 +1,18 @@
+.login_tab{
+	width:300px;
+	border-collapse: collapse;
+	margin:auto;
+}
+.login_tab tr:FIRST-CHILD td{
+	color:white;
+	font-size:30px;
+	font-weight: bold;
+}
+.login_content{
+	width:400px;
+	height:400px;
+	margin:auto;
+	margin-top:150px;
+	border-radius:5px;
+	background-color: rgba(0,0,0,0.5)
+}

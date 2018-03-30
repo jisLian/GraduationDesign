@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.RoomDao">
+  	<resultMap type="com.jis.pojo.Room" id="room">
+  		<id property="roomId" column="roomId"/>
+  		<result property="roomTypeId" column="roomTypeId"/>
+  		<result property="useFlag" column="useFlag"/>
+  	</resultMap>
+  	<select id="getAllRoom" resultMap="room">
+  		select * from room
+  	</select>
+  	<update id="updateRoomTypeByRoomId">
+  		update room set roomTypeId=#{0} where roomId=#{1}
+  	</update>
+  	<select id="findEmptyRoomById" resultMap="room">
+  		select * from room where useFlag=0 and roomTypeId=#{0}
+  	</select>
+  	<select id="findHasUseRoomById" resultMap="room">
+  		select * from room where useFlag=1 and roomTypeId=#{0}
+  	</select>
+  	<update id="updateRoomUseFlag">
+  		update room set useFlag=1 where roomId=#{0}
+  	</update>
+  	<update id="updateRoomExitFlag">
+  		update room set useFlag=0 where roomId=#{0}
+  	</update>
+  	<select id="findRoomByroomId" resultMap="room">
+  		select * from room where roomid=#{0}
+  	</select>
+  	<update id="setRoomFree">
+  		update room set useflag =0 where roomid=#{0}
+  	</update>
+  	<select id="findGoodsRoomByRoomId" resultMap="room">
+  		select * from room where roomId in(select roomId from roomGoods group by roomId)
+  	</select>
+</mapper>

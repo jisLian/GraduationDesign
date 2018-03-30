@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.RoomTypeDao">
+	<resultMap type="com.jis.pojo.RoomType" id="roomType">
+		<id property="roomTypeId" column="roomTypeId"/>
+		<result property="typeName" column="typeName"/>
+		<result property="perFee" column="perFee"/>
+	</resultMap>
+	<select id="findAllRoomType" resultMap="roomType">
+		select * from roomtype
+	</select>
+	<update id="updateRoomTypeById">
+		update roomtype set 
+		<if test="typeName==null">
+			perfee=#{perfee} 
+		</if>
+		<if test="perfee==0">
+			typename=#{typeName}
+		</if>		
+		where roomtypeid=#{roomTypeId}
+	</update>
+	<insert id="addRoomType">
+		insert into roomtype values(roomtypeid_seq.nextval,#{0},#{1})
+	</insert>
+	<select id="findRoomTypeById" resultMap="roomType">
+		select * from roomType where roomTypeId=#{0}
+	</select>
+</mapper>

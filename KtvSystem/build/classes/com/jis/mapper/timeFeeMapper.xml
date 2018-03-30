@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.TimeFeeDao">
+ 	<resultMap type="com.jis.pojo.TimeFee" id="timeFeeType">
+ 		<id property="timeId" column="timeId"></id>
+ 		<result property="startAddPrice" column="startAddPrice"/>
+ 		<result property="endAddprice" column="endAddprice"/>
+ 	</resultMap>
+ 	<update id="updateTimeRand">
+ 		update timefee set startaddprice=#{0},endAddprice=#{1} where timeId=#{2}
+ 	</update>
+ 	<select id="getAllTimeFee" resultMap="timeFeeType">
+ 		select * from timeFee
+ 	</select>
+ 	<select id="findFee" resultMap="timeFeeType">
+ 		select * from timefee where to_char(sysdate,'hh24:mi:ss') between to_char(startaddprice,'hh24:mi:ss') and to_char(endaddprice,'hh24:mi:ss')
+ 	</select>
+ 	<select id="getTimeFeeByTimeId" resultMap="timeFeeType">
+ 		select* from timefee where timeId=#{0}
+ 	</select>
+</mapper>

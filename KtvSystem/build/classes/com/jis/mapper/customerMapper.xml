@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.CustomerDao">
+  	<resultMap type="com.jis.pojo.Customer" id="customerType">
+  		<id property="customerId" column="customerId"/>
+  		<result property="customerName" column="customerName"/>
+  		<result property="customerTel" column="customerTel"/>
+  	</resultMap>
+  	<insert id="AddCustomer" parameterType="com.jis.pojo.Customer">
+  		insert into customer values(customerid_seq.nextval,#{customerName},#{customerTel})
+  	</insert>
+  	<select id="findCustomerByTel" resultMap="customerType">
+  		select * from customer where customerTel=#{0}
+  	</select>
+  	<select id="findCustomerById" resultMap="customerType">
+  		select * from customer where customerId=#{0}
+  	</select>
+  	<update id="updateTel">
+  		update customer set customerTel=#{0} where customerId=#{1}
+  	</update>
+  	<update id="updateName">
+  		update customer set customerName=#{0} where customerId=#{1}
+  	</update>
+  	<select id="findAllCustomer" resultMap="customerType">
+  		select *from customer
+  	</select>
+  	<delete id="deleteCustomerById">
+  		delete from customer where customerId=#{0}
+  	</delete>
+</mapper>

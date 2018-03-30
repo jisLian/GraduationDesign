@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jis.dao.RoomGoodsDao">
+  <resultMap type="com.jis.pojo.RoomGoods" id="roomGoodsType">
+  		<result property="roomId" column="roomId"/>
+  		<result property="goodsId" column="goodsId"/>
+  		<result property="orderCount" column="orderCount"/>
+  		<result property="oderTime" column="oderTime"/>
+  </resultMap>
+  <select id="findCountById" resultMap="roomGoodsType">
+  		select * from roomgoods where roomId=#{0} and goodsId=#{1}
+  </select>
+  <delete id="acceptCaseById">
+  	delete from roomgoods where roomId=#{0}
+  </delete>
+  <insert id="addFoodToRoom" parameterType="com.jis.pojo.RoomGoods">
+  	insert into roomgoods values(#{roomId},#{goodsId},#{orderCount},#{oderTime})
+  </insert>
+</mapper>
